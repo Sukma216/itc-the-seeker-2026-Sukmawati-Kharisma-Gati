@@ -14,7 +14,6 @@ class ITCDirectoryApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'ITC Directory',
       theme: ThemeData(
-        // Menggunakan warna hijau sesuai tema "The Seeker" di banner
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF1B5E20)),
         useMaterial3: true,
       ),

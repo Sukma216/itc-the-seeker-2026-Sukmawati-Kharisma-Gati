@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'detailanggota.dart'; // Pastikan nama file ini sesuai
+import 'detailanggota.dart'; 
 
 class StructureScreen extends StatelessWidget {
   final Color primaryGreen = const Color(0xFF1B5E20);
 
-  // Data Pimpinan Utama
+  
   final List<Map<String, String>> itcleader = [
     {"nama": "Grace Rianty Butar Butar", "jabatan": "Chairman", "foto": "assets/images/PH/c.jpeg"},
     {"nama": "Dzaki Ghatfaan Abhipraya", "jabatan": "Vice Chairman", "foto": "assets/images/PH/vc.jpeg"},
@@ -197,7 +197,7 @@ class StructureScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Hero(
-              tag: data['nama']!, // Tag harus sama dengan di Detail Screen
+              tag: data['nama']!, 
               child: CircleAvatar(
                 radius: 35,
                 backgroundColor: Colors.grey[100],

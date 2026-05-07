@@ -149,7 +149,7 @@ class HomeScreen extends StatelessWidget {
 
             const SizedBox(height: 20),
 
-            // 👤 KETUA
+            // KETUA
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
               child : Center(
@@ -183,7 +183,7 @@ class HomeScreen extends StatelessWidget {
             ),
              const SizedBox(height: 30),
 
-            // 🧩 DIVISI
+            //  DIVISI
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
               child : Center(
