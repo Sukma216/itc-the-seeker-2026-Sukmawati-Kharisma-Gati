@@ -1,25 +1,29 @@
 import 'package:flutter/material.dart';
 import 'structurescreen.dart';
 
-class HomeScreen extends StatelessWidget {
+// pake stateless diam/tetap, cuma buat nampilin data
+// ga ada variabel yg dinamis berubah saat running
+class HomeScreen extends StatelessWidget { 
+  // constructor 
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // struktur utama, buat drawer dan app bar nya 
     return Scaffold(
-      drawer: Drawer(
-        child: ListView(
+      drawer: Drawer( // buat hamburger menu, widget utama untuk bikin panel samping 
+        child: ListView( // ini buat pembungkus menu, kalo ada banyak menu, bisa di scroll
           padding: EdgeInsets.zero,
           children: [
-            const DrawerHeader(
+            const DrawerHeader(  // ini header drawer nya, diatas nya pilihan menu yg ada di hamburger menu
               decoration: BoxDecoration(
                 color: Color(0xFF1B5E20),
               ),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start, // ngatur horizontal, start ini artinya rata kiri
+                mainAxisAlignment: MainAxisAlignment.center,  // ngatur vertikal
                 children: [
-                  CircleAvatar(
+                  CircleAvatar(  // ikon profil di drawerheader
                     radius: 25,
                     backgroundColor: Colors.white,
                     child: Icon(Icons.person, color: Color(0xFF1B5E20), size: 30),
@@ -51,7 +55,8 @@ class HomeScreen extends StatelessWidget {
             ListTile(
               leading: const Icon(Icons.home),
               title: const Text('Home'),
-              onTap: () => Navigator.pop(context),
+              onTap: () => Navigator.pop(context), // ini karena dia kan udah di home
+              // jadi tinggal tutup drawer gampangnya
             ),
             ListTile(
               leading: Icon(Icons.info),
@@ -62,10 +67,11 @@ class HomeScreen extends StatelessWidget {
               leading: const Icon(Icons.people),
               title: const Text('Organization Structure'),
               onTap: () {
-                Navigator.pop(context);
-                Navigator.push(
+                Navigator.pop(context); // nutup drawer ky yg home
+                Navigator.push( // mindah ke halaman struktur 
                   context,
                   MaterialPageRoute(builder: (context) => StructureScreen()),
+                  // memanggil class yg ada di halaman tujuan(structure screen) 
                 );
               },
             ),
@@ -88,12 +94,13 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
 
-      appBar: AppBar(
+      appBar: AppBar( // fungsi nya mirip mirip navbar di website
         backgroundColor: const Color(0xFF1B5E20),
         iconTheme: const IconThemeData(color: Colors.white),
         centerTitle: true,
         
-        actions: [
+        // appbar : leading, title, actions 
+        actions: [ // actions itu area kanan
           Padding(
             padding: const EdgeInsets.only(right: 18.0),
             child: Text(
@@ -109,18 +116,18 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
 
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+      body: SingleChildScrollView( // biar layar bisa discroll
+        child: Column( // nyusun semua bagian berurutan dari atas ke bawah
+          crossAxisAlignment: CrossAxisAlignment.start, // rata kiri
           children: [
 
             // HEADER
             Container(
-              width: double.infinity,
+              width: double.infinity, // ini biar melebar penuh dari kanan ke kiri 
               padding: const EdgeInsets.all(20),
               decoration: const BoxDecoration(
                 color: Color(0xFF1B5E20),
-                borderRadius: BorderRadius.only(
+                borderRadius: BorderRadius.only( // ini yang bikin dia melengkung
                   bottomLeft: Radius.circular(20),
                   bottomRight: Radius.circular(20),
                 ),
@@ -147,7 +154,8 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
 
-            const SizedBox(height: 20),
+            const SizedBox(height: 20), // ini buat ngatur jarak antar widget
+            // biar ga mepet mepet banget
 
             // KETUA
             const Padding(
@@ -161,9 +169,9 @@ class HomeScreen extends StatelessWidget {
               
             ),
             const Padding(
-              padding: EdgeInsets.all(16),
+              padding: EdgeInsets.all(16), // jarak di semua sisi itu segini 
               child: Card(
-                elevation: 4,
+                elevation: 4, // ada efek shadow nya dikit
                 child: ListTile(
                   leading: CircleAvatar(
                     backgroundColor: Color(0xFF1B5E20),
@@ -174,7 +182,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Row(
+            Row( // ini biar tulisan nya sejajar kiri kanan
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 _buildStat('6', 'Division'),
@@ -189,6 +197,7 @@ class HomeScreen extends StatelessWidget {
               child : Center(
                 child: Text(
                 'ITC Division',
+
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               )

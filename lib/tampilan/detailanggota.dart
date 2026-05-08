@@ -4,23 +4,25 @@ class DetailAnggota extends StatelessWidget {
   final Map<String, String> data;
   final Color primaryGreen = const Color(0xFF1B5E20);
 
-  // Konstruktor untuk menerima data dari halaman struktur
+  // constructor untuk menerima data dari halaman struktur
   const DetailAnggota({super.key, required this.data});
 
-  @override
+  @override 
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar( // ya kurang lebih sama spt yg di home
         title: const Text("Profil Anggota", style: TextStyle(color: Colors.white)),
         backgroundColor: primaryGreen,
         iconTheme: const IconThemeData(color: Colors.white),
         centerTitle: true,
       ),
-      body: SingleChildScrollView(
+      body: SingleChildScrollView( // ini di pake karena ada yg tersusun ke bawah (bagian core team)
+      // tp ada juga yg kotak kitak buat head di tiap divisi nya
+
         child: Column(
           children: [
             const SizedBox(height: 30),
-            // Foto Profil dengan Animasi Hero
+            // Foto Profil 
             Hero(
               tag: data['nama']!,
               child: CircleAvatar(

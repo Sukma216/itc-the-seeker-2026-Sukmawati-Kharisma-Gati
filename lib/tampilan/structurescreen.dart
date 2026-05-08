@@ -67,7 +67,7 @@ class StructureScreen extends StatelessWidget {
     },
   ];
 
-  // Fungsi navigasi ke halaman detail
+  // navigasi ke halaman detail
   void _pindahKeDetail(BuildContext context, Map<String, String> data) {
     Navigator.push(
       context,
@@ -167,7 +167,7 @@ class StructureScreen extends StatelessWidget {
         child: ListTile(
           contentPadding: const EdgeInsets.all(12),
           leading: Hero(
-            tag: data['nama']!, // Tag harus unik untuk animasi
+            tag: data['nama']!, 
             child: CircleAvatar(
               radius: 30,
               backgroundColor: primaryGreen.withOpacity(0.1),
